@@ -29,9 +29,31 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
+import fullscreenIcon from '@ckeditor/ckeditor5-core/theme/icons/fullscreen.svg';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
+
+class FullScreen extends Plugin {
+    init() {
+        const editor = this.editor;
+
+        editor.ui.componentFactory.add('fullScreen', (locale) => {
+            const view = new ButtonView(locale);
+            view.set({
+                label: 'Fullscreen',
+                icon: fullscreenIcon,
+                tooltip: true,
+            });
+                    
+            // Xử lý khi icon được click
+            // ...
+            
+            return view;
+        });
+    }
+}
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
 	Essentials,
@@ -56,7 +78,8 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	TextTransformation
+	TextTransformation,
+	FullScreen
 ];
 
 // Editor configuration.
@@ -79,7 +102,8 @@ ClassicEditor.defaultConfig = {
 			'insertTable',
 			'mediaEmbed',
 			'undo',
-			'redo'
+			'redo',
+			'fullScreen',
 		]
 	},
 	image: {
