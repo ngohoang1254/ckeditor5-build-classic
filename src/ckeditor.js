@@ -31,6 +31,7 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import fullscreenIcon from '@ckeditor/ckeditor5-core/theme/icons/fullscreen.svg';
+import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
